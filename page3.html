@@ -1,0 +1,46 @@
+<!-- page3.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Birthday Gifts 🎁</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/page3.js"></script>
+</head>
+<body>
+
+  <div class="top-bar">
+    <button id="audioToggle">🔊</button>
+  </div>
+
+  <h1 class="banner">💝 Choose Your Surprise 💝</h1>
+  <p class="instruction">Click on the gifts to open surprises 🎁✨</p>
+
+  <!-- Gift Boxes -->
+  <div class="gift-container">
+    <div class="gift" onclick="location.href='page3_gift1.html'">
+      <img src="img/gifts/gift1.png" alt="Gift 1">
+      
+    </div>
+    <div class="gift" onclick="location.href='page3_gift2.html'">
+      <img src="img/gifts/gift2.png" alt="Gift 2">
+      <P>This is from <br>a special person</P>
+      
+    </div>
+    <div class="gift" onclick="location.href='page3_gift3.html'">
+      <img src="img/gifts/gift3.png" alt="Gift 3">
+      
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="music/bg.mp3" loop autoplay></audio>
+
+  <!-- Decorations -->
+  <div class="balloons"></div>
+  <div class="confetti"></div>
+  <div class="stars"></div>
+
+</body>
+</html>

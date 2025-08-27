@@ -1,0 +1,46 @@
+<!-- page2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake Surprise 🎂</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/page2.js"></script>
+</head>
+<body>
+
+  <div class="top-bar">
+    <button id="audioToggle">🔊</button>
+  </div>
+
+  <h1 class="banner">🎂 Make a Wish! 🎂</h1>
+
+  <!-- Cake with candles -->
+  <div class="cake">
+    <img src="img/cake.png" alt="Birthday Cake">
+    <div class="candles">
+      <div class="candle"><span class="flame"></span></div>
+      <div class="candle"><span class="flame"></span></div>
+      <div class="candle"><span class="flame"></span></div>
+    </div>
+  </div>
+
+  <!-- Blow candles button -->
+  <button id="blowBtn" class="next-btn">Blow Candles 🎂</button>
+
+  <!-- Next page -->
+  <button class="next-btn" onclick="location.href='page3.html'">Next Surprise ➝</button>
+
+  <!-- Background Music -->
+  <!-- <audio id="bgMusic" src="music/bg_cake.mp3" loop autoplay></audio> -->
+  <!-- Happy Birthday Song (hidden until candles blown) -->
+  <audio id="hbSong" src="music/bg_cake.mp3"></audio>
+
+  <!-- Decorations -->
+  <div class="balloons"></div>
+  <div class="confetti"></div>
+  <div class="stars"></div>
+
+</body>
+</html>

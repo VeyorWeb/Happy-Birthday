@@ -1,0 +1,41 @@
+<!-- start.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday ❤️</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/start.js"></script>
+</head>
+<body>
+
+  <!-- FRAME 1: Black screen with glowing button -->
+  <div id="frame1" class="frame black-screen">
+    <button id="lightBtn" class="glow-btn">Turn On the Light</button>
+  </div>
+
+  <!-- FRAME 2: Main Happy Birthday screen (hidden until button clicked) -->
+  <div id="frame2" class="frame hidden">
+    <div class="top-bar">
+      <button id="audioToggle">🔊</button>
+    </div>
+    <h1 class="banner">🎉 HAPPY BIRTHDAY <span id="name">Kudratiiiii</span> 🎉</h1>
+    
+    <div class="profile">
+      <img src="img/profile.jpg" alt="Birthday Person">
+    </div>
+
+    <!-- Decorations -->
+    <div class="balloons"></div>
+    <div class="confetti"></div>
+    <div class="stars"></div>
+
+    <button class="next-btn" onclick="location.href='page2.html'">Next Surprise ➝</button>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" src="music/s.mp3" loop ></audio>
+  </div>
+
+</body>
+</html>

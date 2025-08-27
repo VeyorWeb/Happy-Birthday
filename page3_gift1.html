@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Beautiful Memories ✨</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #110012;
+      color: #fff0fb;
+    }
+    h1 {
+      text-align: center;
+      margin: 32px 0 0;
+      font-size: 2.5rem;
+      text-shadow: 0 0 16px #ff99cc, 0 0 40px #ffb3da;
+    }
+    /* Scatter grid using CSS Grid "Masonry" style */
+    .album {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 28px 24px;
+      margin: 38px;
+      padding: 10px;
+      justify-items: center;
+      align-items: start;
+      grid-auto-flow: dense;
+    }
+    .photo {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 18px #ff99cc, 0 0 40px #51053744;
+      opacity: 0;
+      transform: scale(0.93) rotate(var(--twist, -3deg));
+      animation: fadeInCard 1s forwards;
+      animation-delay: var(--delay, 0.2s);
+      background: none;
+      padding: 0;
+      max-width: 260px;
+      width: 100%;
+      cursor: pointer;
+      transition: box-shadow 0.4s, transform 0.5s;
+      position: relative;
+    }
+    .photo:hover {
+      box-shadow: 0 0 36px #ffb4d9;
+      transform: scale(1.06) rotate(var(--twist, 0deg));
+      z-index: 2;
+    }
+    .photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+    }
+    @keyframes fadeInCard {
+      to { opacity: 1; transform: scale(1) rotate(var(--twist, -3deg)); }
+    }
+    /* Modal Styles */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      z-index: 30;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.83);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-bg.open {
+      display: flex;
+      animation: fadeIn 0.4s;
+    }
+    .modal-img {
+      border-radius: 16px;
+      box-shadow: 0 0 40px #ff99cc;
+      max-width: 90vw;
+      max-height: 90vh;
+      animation: popIn 0.4s;
+    }
+    .modal-close {
+      position: absolute;
+      top: 32px;
+      right: 50px;
+      font-size: 2.2rem;
+      color: #fff6f9;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes popIn { from {scale: 0.8;} to {scale: 1;} }
+
+    .back-btn {
+  display: inline-block;
+  margin: 36px auto 0 auto;
+  padding: 13px 32px;
+  background: #ff6699;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  box-shadow: 0 0 14px #ff99cc;
+  transition: background 0.2s, box-shadow 0.3s;
+}
+.back-btn:hover {
+  background: #ff88aa;
+  box-shadow: 0 0 28px #ff99cc;
+}
+
+  </style>
+</head>
+<body>
+  <h1>✨ Our Beautiful Memories ✨</h1>
+  <h4><p>These photos are proof that if someone asks me how my life was during college days, I can say it was beautiful.</p></h4>
+
+  <div class="album">
+    <div class="photo" style="--delay: .2s; --twist: -2.5deg;">
+      <img src="img/album/Memory 1.jpg" alt="Memory 1">
+    </div>
+    <div class="photo" style="--delay: .4s; --twist: 4deg;">
+      <img src="img/album/Memory 2.jpg" alt="Memory 2">
+    </div>
+    <div class="photo" style="--delay: .6s; --twist: -3deg;">
+      <img src="img/album/Memory 3.jpg" alt="Memory 3">
+    </div>
+    <div class="photo" style="--delay: .8s; --twist: 3deg;">
+      <img src="img/album/Memory 4.jpg" alt="Memory 4">
+    </div>
+    <div class="photo" style="--delay: 1s; --twist: 1deg;">
+      <img src="img/album/Memory 5.jpg" alt="Memory 5">
+    </div>
+    <div class="photo" style="--delay: 1.2s; --twist: -4deg;">
+      <img src="img/album/Memory 6.jpg" alt="Memory 6">
+    </div>
+    <div class="photo" style="--delay: 1.4s; --twist: 2.5deg;">
+      <img src="img/album/Memory 7.jpg" alt="Memory 7">
+    </div>
+    <div class="photo" style="--delay: 1.6s; --twist: -1deg;">
+      <img src="img/album/Memory 8.jpg" alt="Memory 8">
+    </div>
+    
+    
+
+  <!-- Modal (hidden by default) -->
+  <div class="modal-bg" id="modalBg">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <img id="modalImg" class="modal-img" src="" alt="Memory Large">
+  </div>
+  <audio id="bgMusic" src="music/bg.mp3" loop autoplay></audio>
+  <button class="back-btn" onclick="location.href='page3.html'">⬅ Back</button>
+
+
+  <script>
+    // Scatter+modal logic
+    document.querySelectorAll('.photo').forEach(photo => {
+      photo.addEventListener('click', function() {
+        var src = this.querySelector('img').getAttribute('src');
+        var alt = this.querySelector('img').getAttribute('alt');
+        document.getElementById('modalImg').src = src;
+        document.getElementById('modalImg').alt = alt;
+        document.getElementById('modalBg').classList.add('open');
+      });
+    });
+    document.getElementById('modalClose').onclick = function () {
+      document.getElementById('modalBg').classList.remove('open');
+      document.getElementById('modalImg').src = '';
+    };
+    document.getElementById('modalBg').onclick = function (e) {
+      if (e.target === this) { // only background click closes
+        this.classList.remove('open');
+        document.getElementById('modalImg').src = '';
+      }
+    }
+  </script>
+</body>
+</html>
